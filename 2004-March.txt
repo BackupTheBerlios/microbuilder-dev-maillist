@@ -1,0 +1,861 @@
+From mbertier at fusemail.com  Tue Mar  2 14:04:18 2004
+From: mbertier at fusemail.com (Michel Bertier)
+Date: Tue, 2 Mar 2004 13:04:18 +0000
+Subject: [Microbuilder-dev] Ideas
+Message-ID: <200403021304.18152.mbertier@fusemail.com>
+
+Ha?!
+
+We checked the installer u sent us (it's REALLY gorgeous - can u say that for 
+an installer ?).
+And used a lot postnuke to see how it feels regarding to the current site (we 
+use it ALOT ;)
+
+ Using postnuke as a basis for the microbuilder will greatly help, but we're 
+afraid that the micromusic site will have a "postnuke feeling". Actually, we 
+think that every microbuilder module should be recoded from scratch. This 
+will for sure give modules a functionnal and graphical consistency (a common 
+identity). Besides that, designing our own modules would permit _much easier_ 
+maintenance and evolutions.
+
+A downgraded postnuke (+additionnal specifically implemented classes) will 
+be fully documented, with a stable API in order to permit easy module 
+development (we could also setup a special berlios project dedicated to 
+microbuilder modules - as dotproject does, see http://dotmods.sf.net)
+
+The software will have a the ability to provide external services for each 
+module (XML feeds, RPC, ...)
+
+And we've seen that different things can be done to blast the performance 
+problems :
+
+After looking at the stats u sent us, we thought that many of the site's 
+sections could be pregenerated in HTML. For instance, as the MicroWarez is 
+only updated 5/6 times a month, html generetaion should only happen at update 
+time. This will permit to avoid using the php interpreter uselessly. 
+Pregeneration will be implemented as a flag that can be toggled by admins for 
+each module.
+
+If you have sufficient rights on micromusic.net web server it would also be 
+possible to optimize site's RAM consumption by setting up a lightweight 
+apache proxy (approx. 400k) to serve static pages (that's why html 
+pregeneration would be nice) . 
+
+It would only raise an heavy php-capable apache process (several Mos) to serve 
+php pages (but maybe you've done that already?).
+
+Bill (our local javascript wizard)  also raised the idea of a completely  
+alternative rendering method (the site's look wouldn't change) using  
+javascript (demo soon :).  Among other features, this would permit on demand  
+preloading of site's interface ( => no more page refreshing :). This might  
+not sound clear, but a demo will come soon in your hands !
+
+We don't know how advanced microbuilder has to be for the mid-april 
+prerelease.  So here's some info :
+
+Until mid-April we can provide :
+ - downgraded (yet fully working ;) postnuke (we only keep the backend)
+ - stable API (so that module development can start)
+ - html generation engine (something that will be called pnXHTML - xhtml 
+lowers pages' weight, is easily accessible by javascript, and so on...)
+ - javascript rendering engine prototype
+ - API docs for the above
+ - a minimal example site with minimal example module
+ - installer (you implemented it already ;)
+
+Do you like these ideas? 
+
+Your development plans for April are probably already established and our 
+proposal probably (yet it may ;) doesn't fit.
+April is coming soon, and it's sure we can't provide more that what mentioned 
+above. So, while you work at that prerelease, 
+
+we can work on that proposal (if u like it :) and set up a nice, shiny and 
+documented API that you&us can work on as of April 
+
+;)
+
+Reading Microbuilder's project concept u sent us was great and we think that 
+the box deserves to have a CMS software as 
+
+original as the book :) Motivation here is great ;)
+
+luuuuuukin' furward,
+
+Bertier, Bill & Divag
+
+-- 
+Ce message et toutes les pi?ces jointes sont confidentiels 
+et ?tablis ? l'intention exclusive de leurs destinataires. 
+La COGIP d?cline toute responsabilit? en cas d'alt?ration, 
+de d?formation, de falsification ou de non-port de la cravate 
+par l'auteur du message. 
+
+
+From carl at micromusic.net  Tue Mar  2 14:24:34 2004
+From: carl at micromusic.net (carl)
+Date: Tue, 02 Mar 2004 14:24:34 +0100
+Subject: [Microbuilder-dev] Ideas
+In-Reply-To: <200403021304.18152.mbertier@fusemail.com>
+References: <200403021304.18152.mbertier@fusemail.com>
+Message-ID: <6.0.0.22.2.20040302135919.03041680@mail.obinary.com>
+
+hello dev peeps
+
+At 14:04 02.03.2004, you wrote:
+>We checked the installer u sent us (it's REALLY gorgeous - can u say that for
+>an installer ?).
+>And used a lot postnuke to see how it feels regarding to the current site (we
+>use it ALOT ;)
+>
+>  Using postnuke as a basis for the microbuilder will greatly help, but we're
+>afraid that the micromusic site will have a "postnuke feeling".
+
+you're right, this can be a problem since postnuke typically uses this
+left block, middle block, right block layout. until now i thought this isnt
+a big problem since it is actually appropriate for the microbuilder/micromusic
+layout, it is like LEGO blocks fitting together ;)
+but of course we can also make it better there too.
+
+the biggest problems are postnuke like sites which are vertically very
+long already (scrolling) on the home page. i like it very compact, more 
+like a block,
+which opens up vertically as soon as you look at content.
+
+>Actually, we
+>think that every microbuilder module should be recoded from scratch. This
+>will for sure give modules a functionnal and graphical consistency (a common
+>identity). Besides that, designing our own modules would permit _much easier_
+>maintenance and evolutions.
+
+i also think that we should look at each module and re-code it if needed.
+
+
+>A downgraded postnuke (+additionnal specifically implemented classes) will
+>be fully documented, with a stable API in order to permit easy module
+>development (we could also setup a special berlios project dedicated to
+>microbuilder modules - as dotproject does, see http://dotmods.sf.net)
+
+it would be nice if we dont need to change the postnukeAPI cos then we can
+use postnuke modules and adapt them easily, and also refere to the API
+documentation from postnuke.
+
+>The software will have a the ability to provide external services for each
+>module (XML feeds, RPC, ...)
+
+isnt this already included in postnuke in some way?
+in the blocks admin section there is something like
+"Refresh time for block (only used for blocks that pull information from 
+outside sources)"
+
+what is this for exactly?
+
+
+>And we've seen that different things can be done to blast the performance
+>problems :
+>
+>After looking at the stats u sent us, we thought that many of the site's
+>sections could be pregenerated in HTML. For instance, as the MicroWarez is
+>only updated 5/6 times a month, html generetaion should only happen at update
+>time. This will permit to avoid using the php interpreter uselessly.
+
+at the moment i use the pnRender module for the microeventz and microshop,
+and it is possible to cache the pages as HTML. isnt this a method we could use?
+
+>Pregeneration will be implemented as a flag that can be toggled by admins for
+>each module.
+
+ok, sounds cool if possible :)
+
+
+>If you have sufficient rights on micromusic.net web server it would also be
+>possible to optimize site's RAM consumption by setting up a lightweight
+>apache proxy (approx. 400k) to serve static pages (that's why html
+>pregeneration would be nice) .
+
+i have root access to the micromusic.net server cos it is ours now.
+but i dont know if we should work on the current micromusic.net site
+since it is running ok atm. but for the recoded microbuilder/micromusic.net
+soft we should really think about that properly.
+
+>It would only raise an heavy php-capable apache process (several Mos) to 
+>serve
+>php pages (but maybe you've done that already?).
+
+no, i havent. i'm not very experience with that.
+
+
+>Bill (our local javascript wizard)  also raised the idea of a completely
+>alternative rendering method (the site's look wouldn't change) using
+>javascript (demo soon :).  Among other features, this would permit on demand
+>preloading of site's interface ( => no more page refreshing :). This might
+>not sound clear, but a demo will come soon in your hands !
+
+oh ok, looking forward to seeing a demo then :)
+
+>We don't know how advanced microbuilder has to be for the mid-april
+>prerelease.  So here's some info :
+>
+>Until mid-April we can provide :
+>  - downgraded (yet fully working ;) postnuke (we only keep the backend)
+>  - stable API (so that module development can start)
+>  - html generation engine (something that will be called pnXHTML - xhtml
+>lowers pages' weight, is easily accessible by javascript, and so on...)
+>  - javascript rendering engine prototype
+>  - API docs for the above
+>  - a minimal example site with minimal example module
+>  - installer (you implemented it already ;)
+>
+>Do you like these ideas?
+
+thats great and exactly what we need. about the mid april release:
+i dont think it is a shame if we present a piece of soft which doesnt yet
+include all the technical aspects mentioned above. lets see it as a kick-off
+event where we present the software and installer and functionality
+to the public and explain what the future plans are and how people can 
+participate.
+
+we dont need a completely clean product until then, this wouldnt be possible
+anyway i'm afraid.
+
+>Your development plans for April are probably already established and our
+>proposal probably (yet it may ;) doesn't fit.
+
+at the moment i adapt all the modules i think should be implemented until 
+mid april:
+
+microshop, microeventz, up/downloads, microliner, micronews, microFAQ, 
+microlinks.
+
+basically these are "comsmetic" changes i do, layout and navigation etc.
+
+you can check the latest update here:
+
+http://microbuilder.com/mbnuke/
+
+microeventz and microshop are almost finished.
+
+>April is coming soon, and it's sure we can't provide more that what mentioned
+>above. So, while you work at that prerelease,
+>
+>we can work on that proposal (if u like it :) and set up a nice, shiny and
+>documented API that you&us can work on as of April
+
+wow, it is really great that you can help me out there and i'm excited 
+about your
+input and ideas. thats exactly what we need to create a successful and shiny
+CMS system in the future. :)
+
+>Reading Microbuilder's project concept u sent us was great and we think that
+>the box deserves to have a CMS software as
+>
+>original as the book :) Motivation here is great ;)
+
+yeah, i think it should be mainly very original and, second, technically simple
+and stable and fast.
+
+fast - fun - colorful ;)
+
+
+>luuuuuukin' furward,
+
+talk to you soon
+greeetz
+carl
+
+
+
+
+
+>Bertier, Bill & Divag
+>
+>--
+>Ce message et toutes les pi?ces jointes sont confidentiels
+>et ?tablis ? l'intention exclusive de leurs destinataires.
+>La COGIP d?cline toute responsabilit? en cas d'alt?ration,
+>de d?formation, de falsification ou de non-port de la cravate
+>par l'auteur du message.
+>_______________________________________________
+>Microbuilder-dev mailing list
+>Microbuilder-dev at lists.berlios.de
+>http://lists.berlios.de/mailman/listinfo/microbuilder-dev
+
+
+
+
+From mbertier at fusemail.com  Wed Mar 10 02:08:57 2004
+From: mbertier at fusemail.com (Michel Bertier)
+Date: Wed, 10 Mar 2004 02:08:57 +0100
+Subject: [Microbuilder-dev] Microanswer
+Message-ID: <200403100208.57061.mbertier@fusemail.com>
+
+Hi :)
+
+a whole week to write a simple email ! hum :S things have been done anyway :)
+we discussed extensively, made things clear between us (that's important !). 
+Bill will provide a working prototype of the rendering engine tomorrow. 
+Postnuke downgrading will finish by the end of the week :) (with installer). 
+Answers to your questions and reactions to your comments follow.
+We seem to agree on everything (yeah!;) but the postnuke compatibility. Let's 
+discuss it :) !
+
+
+>> it would be nice if we dont need to change the postnukeAPI cos then we
+>> can use postnuke modules and adapt them easily, and also refere to the
+>> API documentation from postnuke.
+we do not really agree with this ... as stated in the microbuilder concept 
+doc, the microbuilder has to be _simple_. each micromodule micromodule has to 
+be specific, and simple too. Postnuke modules (because that is their purpose) 
+are bloated with functionnality and are designed to be _very_ generic and 
+adaptative. And we feel that Microbuilder does'nt need to be as generic as 
+postnuke, does it ?
+We really think that breakin compatibility with postnuke is important :
+ - code maintenance is easier when you have developed the modules (postnuke 
+documentation is really awful)
+ - micromusic site needs to have a strong personnality. Using third party 
+modules will decrease this personnality.
+ - we don't need the microbuilder to evolve as fast / the same way as 
+postnuke. the microbuilder does'nt aim to be a worldwide spread generic cms 
+management system.
+ postnuke base will be very useful but we really shouldn't use the top layer 
+of the application (modules, rendering, ...). It is not well documented and 
+doens't feet our needs.
+ Once the Microbuilder finished, we'll have fully functionnal cms system with 
+a fully original rendering system, modules highly specialized in music 
+community management capable of interacting with the site's interface. The 
+microbuilder (nicely documented) API will permit microcoders to develop 
+supplementary modules easily.
+
+>>> The software will have a the ability to provide external services for
+>>> each module (XML feeds, RPC, ...)
+>> isnt this already included in postnuke in some way?
+>> in the blocks admin section there is something like
+>> "Refresh time for block (only used for blocks that pull information
+>> from outside sources)"
+XML feed generation is disponible in postnuke for news item, but its 
+implementation is very limited and it would be much better to recode this.
+(The blocks your speaking of do not provide external service but pull their 
+information from such services)
+
+
+>> at the moment i use the pnRender module for the microeventz and
+>> microshop, and it is possible to cache the pages as HTML. isnt this a
+>> method we could use?
+pnRender is very nice but it still uses table markup, which is not good and 
+wouldn't work with javascript rendering. Besides that, pnRender is much more 
+heavy / complex than what is really needed to set up a fantastic 
+microbuilder. 
+
+
+
+greeetz and quicker answers ;)
+
+Divag, Bill & Bertier
+
+-- 
+Ce message et toutes les pi?ces jointes sont confidentiels
+et ?tablis ? l'intention exclusive de leurs destinataires.
+La COGIP d?cline toute responsabilit? en cas d'alt?ration,
+de d?formation, de falsification ou de non-port de la cravate
+par l'auteur du message.
+
+
+From mbertier at fusemail.com  Wed Mar 10 11:12:16 2004
+From: mbertier at fusemail.com (Michel Bertier)
+Date: Wed, 10 Mar 2004 10:12:16 +0000
+Subject: Fwd: Re: [Microbuilder-dev] Microanswer
+Message-ID: <200403101012.16494.mbertier@fusemail.com>
+
+h!
+
+received this answer from Carl :))
+Maybe Bill can explain a bit the javascript rendering (if he is not to busy 
+coding the prototype :)
+
+----------  Forwarded Message  ----------
+
+Subject: Re: [Microbuilder-dev] Microanswer
+Date: Wednesday 10 March 2004 09:10
+From: carl <carl at micromusic.net>
+To: Michel Bertier <mbertier at fusemail.com>
+
+hey there
+
+thanks for your email and sorry for not geting in touch with
+you for almost 1 week. i was busy with other things involved
+with the microbuilder release date, which will be 21st of april.
+fixed.
+
+At 02:08 10.03.2004, you wrote:
+>a whole week to write a simple email ! hum :S things have been done anyway
+> :)
+
+wow
+
+>we discussed extensively, made things clear between us (that's important !).
+>Bill will provide a working prototype of the rendering engine tomorrow.
+>Postnuke downgrading will finish by the end of the week :) (with installer).
+>Answers to your questions and reactions to your comments follow.
+>We seem to agree on everything (yeah!;) but the postnuke compatibility.
+> Let's discuss it :) !
+
+yes!!
+
+> >> it would be nice if we dont need to change the postnukeAPI cos then we
+> >> can use postnuke modules and adapt them easily, and also refere to the
+> >> API documentation from postnuke.
+>
+>we do not really agree with this ... as stated in the microbuilder concept
+>doc, the microbuilder has to be _simple_. each micromodule micromodule has
+> to be specific, and simple too. Postnuke modules (because that is their
+> purpose) are bloated with functionnality and are designed to be _very_
+> generic and adaptative. And we feel that Microbuilder does'nt need to be as
+> generic as postnuke, does it ?
+
+ok, i think your arguments are right, and in fact at the very beginning i
+though
+the microbuilder needs a completely new "engine" from scratch. then
+i realized that postnuke has included the most things we need. so
+actually you convinced me to "downsize" the postnuke cms and extend it
+with microbuilder/micromusic functionality.
+
+maybe i was a bit scared to start working on this but with your help,
+ know-how and experience i can imagine that this is the right way to do it.
+
+>We really think that breakin compatibility with postnuke is important :
+>  - code maintenance is easier when you have developed the modules (postnuke
+>documentation is really awful)
+>  - micromusic site needs to have a strong personnality. Using third party
+>modules will decrease this personnality.
+
+you're right, i agree.
+
+>  - we don't need the microbuilder to evolve as fast / the same way as
+>postnuke. the microbuilder does'nt aim to be a worldwide spread generic cms
+>management system.
+
+i agree. it would be perfect if the microbuilder would have a very
+special "character" and "style" as described in the microbuilder docs.
+
+>  postnuke base will be very useful but we really shouldn't use the top
+> layer of the application (modules, rendering, ...). It is not well
+> documented and doens't feet our needs.
+
+ok, i'm convinced!!
+
+>  Once the Microbuilder finished, we'll have fully functionnal cms system
+> with
+>a fully original rendering system, modules highly specialized in music
+>community management capable of interacting with the site's interface. The
+>microbuilder (nicely documented) API will permit microcoders to develop
+>supplementary modules easily.
+>
+> >>> The software will have a the ability to provide external services for
+> >>> each module (XML feeds, RPC, ...)
+> >>
+> >> isnt this already included in postnuke in some way?
+> >> in the blocks admin section there is something like
+> >> "Refresh time for block (only used for blocks that pull information
+> >> from outside sources)"
+>
+>XML feed generation is disponible in postnuke for news item, but its
+>implementation is very limited and it would be much better to recode this.
+>(The blocks your speaking of do not provide external service but pull their
+>information from such services)
+
+ok, it would be perfekt if websites could "link together" and exchange
+content easily. also i could imagine that we could use this for mirroring,
+one server in europe, one in asia/australia and one in the USA...
+
+> >> at the moment i use the pnRender module for the microeventz and
+> >> microshop, and it is possible to cache the pages as HTML. isnt this a
+> >> method we could use?
+>
+>pnRender is very nice but it still uses table markup, which is not good and
+>wouldn't work with javascript rendering. Besides that, pnRender is much more
+>heavy / complex than what is really needed to set up a fantastic
+>microbuilder.
+
+just cos i'm curious: the pnXHTML render engine your talking about will
+basically work with "layers" which are placed, hidden or displayed by
+javascript,
+right? or wrong?
+do you still want to use frames then or realize it on "one page" with
+ layers?? maybe i cant explain my questions very well but i hope u
+ understand...
+
+yo, talk again soon. i'm getting excited and am glad you're all involved!
+
+best
+carl
+
+--
+http://www.micromusic.net
+
+lowtech music for hightech people
+
+need more input?
+microbuilder - community construction kit
+http://microbuilder.com
+
+-------------------------------------------------------
+
+-- 
+Ce message et toutes les pi?ces jointes sont confidentiels 
+et ?tablis ? l'intention exclusive de leurs destinataires. 
+La COGIP d?cline toute responsabilit? en cas d'alt?ration, 
+de d?formation, de falsification ou de non-port de la cravate 
+par l'auteur du message. 
+
+
+From mbertier at fusemail.com  Wed Mar 10 21:38:47 2004
+From: mbertier at fusemail.com (Michel Bertier)
+Date: Wed, 10 Mar 2004 21:38:47 +0100
+Subject: [Microbuilder-dev] About languages
+Message-ID: <200403102138.47549.mbertier@fusemail.com>
+
+hey :)
+
+Ripping files off postnuke at the moment and wandering :
+
+I'm not sure that the multilanguages capabilities of the cms should be kept. 
+Micromusic is in "euroenglish"... I think that the site's language (and 
+appearance) should be the same for every user.  But that's my point of 
+view :) what about yours ?
+
+grtz 
+
+bertier
+-- 
+Ce message et toutes les pi?ces jointes sont confidentiels
+et ?tablis ? l'intention exclusive de leurs destinataires.
+La COGIP d?cline toute responsabilit? en cas d'alt?ration,
+de d?formation, de falsification ou de non-port de la cravate
+par l'auteur du message.
+
+
+From carl at micromusic.net  Thu Mar 11 13:58:53 2004
+From: carl at micromusic.net (carl)
+Date: Thu, 11 Mar 2004 13:58:53 +0100
+Subject: [Microbuilder-dev] About languages
+In-Reply-To: <200403102138.47549.mbertier@fusemail.com>
+References: <200403102138.47549.mbertier@fusemail.com>
+Message-ID: <6.0.0.22.2.20040311135232.02e964c8@mail.obinary.com>
+
+At 21:38 10.03.2004, you wrote:
+>hey :)
+>
+>Ripping files off postnuke at the moment and wandering :
+>
+>I'm not sure that the multilanguages capabilities of the cms should be kept.
+>Micromusic is in "euroenglish"... I think that the site's language (and
+>appearance) should be the same for every user.  But that's my point of
+>view :) what about yours ?
+
+yes, for micromusic we dont need more than one language.
+
+but for more general use of the microbuilder software it should be
+possible to keep the ability of easy editing and adapting of text in
+modules.
+
+c
+
+
+>grtz
+>
+>bertier
+>--
+>Ce message et toutes les pi?ces jointes sont confidentiels
+>et ?tablis ? l'intention exclusive de leurs destinataires.
+>La COGIP d?cline toute responsabilit? en cas d'alt?ration,
+>de d?formation, de falsification ou de non-port de la cravate
+>par l'auteur du message.
+>_______________________________________________
+>Microbuilder-dev mailing list
+>Microbuilder-dev at lists.berlios.de
+>http://lists.berlios.de/mailman/listinfo/microbuilder-dev
+
+--
+http://www.micromusic.net
+|| ||| | ||| | |||| || | |||
+lowtech music for hightech people
+
+need more input?
+microbuilder - community construction kit
+http://microbuilder.com 
+
+
+
+
+From mbertier at fusemail.com  Sat Mar 13 01:42:07 2004
+From: mbertier at fusemail.com (Michel Bertier)
+Date: Sat, 13 Mar 2004 01:42:07 +0100
+Subject: [Microbuilder-dev] About languages
+In-Reply-To: <6.0.0.22.2.20040311135232.02e964c8@mail.obinary.com>
+References: <200403102138.47549.mbertier@fusemail.com> <6.0.0.22.2.20040311135232.02e964c8@mail.obinary.com>
+Message-ID: <200403130142.07564.mbertier@fusemail.com>
+
+On Thursday 11 March 2004 13:58, carl wrote:
+> yes, for micromusic we dont need more than one language.
+>
+> but for more general use of the microbuilder software it should be
+> possible to keep the ability of easy editing and adapting of text in
+> modules.
+ok :)
+
+ * how it works in postnuke :
+   - Every line of text in postnuke is associated to a constant ( ie. <input 
+type="submit" label="<?php echo _CONSTANTNAME ?>" /> ).
+   - Files located in /language/<langcode>/ 
+and /modules/<modulename>/<langcode>/ contain definition of constants for 
+<langcode> corresponding language.
+   - NS-Language module provides a gui for creating translations
+   - Default <langcode> is 'eng'
+
+ * here's what we'll do :
+   - Completely remove NS-Language
+   - Remove every <langcode>/ rep except for <langcode> == eng
+   - Maintain multilingual capabilities for the installer (do you agree with 
+that ?)
+
+uglub
+
+bertier
+-- 
+Ce message et toutes les pi?ces jointes sont confidentiels
+et ?tablis ? l'intention exclusive de leurs destinataires.
+La COGIP d?cline toute responsabilit? en cas d'alt?ration,
+de d?formation, de falsification ou de non-port de la cravate
+par l'auteur du message.
+
+
+From noreply at berlios.de  Fri Mar 19 16:05:05 2004
+From: noreply at berlios.de (noreply at berlios.de)
+Date: Fri, 19 Mar 2004 16:05:05 +0100 (CET)
+Subject: [Microbuilder-dev] [Bug #1687] test bug
+Message-ID: <200403191505.i2JF55TN006234@unicorn.berlios.de>
+
+Bug #1687, was updated on 2004-Mar-19 16:05
+Here is a current snapshot of the bug.
+
+Project: MicroBuilder
+Category: Installer
+Status: Open
+Resolution: None
+Bug Group: None
+Priority: 5
+Submitted by: mbertier
+Assigned to : mbertier
+Summary: test bug
+
+Details: it's a test !
+
+For detailed info, follow this link:
+http://developer.berlios.de/bugs/?func=detailbug&bug_id=1687&group_id=1487
+
+
+From noreply at berlios.de  Fri Mar 19 16:10:08 2004
+From: noreply at berlios.de (noreply at berlios.de)
+Date: Fri, 19 Mar 2004 16:10:08 +0100 (CET)
+Subject: [Microbuilder-dev] [Bug #1687] test bug
+Message-ID: <200403191510.i2JFA8Mt006408@unicorn.berlios.de>
+
+Bug #1687, was updated on 2004-Mar-19 16:05
+Here is a current snapshot of the bug.
+
+Project: MicroBuilder
+Category: Installer
+Status: Closed
+Resolution: Invalid
+Bug Group: None
+Priority: 5
+Submitted by: mbertier
+Assigned to : mbertier
+Summary: test bug
+
+Details: it's a test !
+
+Follow-Ups:
+
+Date: 2004-Mar-19 16:10
+By: mbertier
+
+Comment:
+let's remove this
+-------------------------------------------------------
+
+For detailed info, follow this link:
+http://developer.berlios.de/bugs/?func=detailbug&bug_id=1687&group_id=1487
+
+
+From mbertier at parishq.net  Fri Mar 19 18:42:30 2004
+From: mbertier at parishq.net (Michel Bertier)
+Date: Fri, 19 Mar 2004 17:42:30 +0000
+Subject: [Microbuilder-dev] Working installer :)
+Message-ID: <200403191742.30680.mbertier@parishq.net>
+
+hey pipZ!
+
+I just finished the new installer.
+It sets up the right tables in db (DB lost weight : it now has 15 tables !) 
+and is fully documented - check the docs out here (package: Installer): 
+http://microbuilder.berlios.de/docs/API/
+
+I started to list elements removed / kept on : 
+http://parishq.kicks-ass.org/microworks/DownGrade
+
+Source code is available on CVS so don't hesitate to checkitout and submit 
+bugs if any !
+
+Merging with Carl's super grafX installer will be done later (Installer has to 
+be fully validated before).
+
+and now it's time to slim the API :)))
+
+looking forward for feedback!
+
+GrTz
+gRtZ
+
+bertier
+
+-- 
+Ce message et toutes les pi?ces jointes sont confidentiels 
+et ?tablis ? l'intention exclusive de leurs destinataires. 
+La COGIP d?cline toute responsabilit? en cas d'alt?ration, 
+de d?formation, de falsification ou de non-port de la cravate 
+par l'auteur du message. 
+
+
+From mbertier at parishq.net  Fri Mar 19 18:47:57 2004
+From: mbertier at parishq.net (Michel Bertier)
+Date: Fri, 19 Mar 2004 17:47:57 +0000
+Subject: [Microbuilder-dev] Microbuilder developers' ressources
+Message-ID: <200403191747.57957.mbertier@parishq.net>
+
+h!
+
+I think we can use webspace provided by berlios (at 
+http://microbuilder.berlios.de) to set up a "Microbuilder developers' 
+ressources" site ?
+
+Do you like this idea ???
+
+:) and soon
+
+bertier
+
+
+
+-- 
+Ce message et toutes les pi?ces jointes sont confidentiels 
+et ?tablis ? l'intention exclusive de leurs destinataires. 
+La COGIP d?cline toute responsabilit? en cas d'alt?ration, 
+de d?formation, de falsification ou de non-port de la cravate 
+par l'auteur du message. 
+
+
+From carl at micromusic.net  Thu Mar 25 09:55:42 2004
+From: carl at micromusic.net (carl)
+Date: Thu, 25 Mar 2004 09:55:42 +0100
+Subject: [Microbuilder-dev] Microbuilder developers' ressources
+In-Reply-To: <200403191747.57957.mbertier@parishq.net>
+References: <200403191747.57957.mbertier@parishq.net>
+Message-ID: <6.0.0.22.2.20040325095311.02e4f060@mail.obinary.com>
+
+At 18:47 19.03.2004, you wrote:
+>h!
+>
+>I think we can use webspace provided by berlios (at
+>http://microbuilder.berlios.de) to set up a "Microbuilder developers'
+>ressources" site ?
+>
+>Do you like this idea ???
+
+great, i just checked it right now.
+i did not yet check the installer in details, but maybe i can use
+this files also for my version 1.0 until mid april, lets see.
+
+can you tell what there is not working anymore with this downsized
+version compared to the original postnuke version?
+
+best
+carl
+
+
+
+>:) and soon
+>
+>bertier
+>
+>
+>
+>--
+>Ce message et toutes les pi?ces jointes sont confidentiels
+>et ?tablis ? l'intention exclusive de leurs destinataires.
+>La COGIP d?cline toute responsabilit? en cas d'alt?ration,
+>de d?formation, de falsification ou de non-port de la cravate
+>par l'auteur du message.
+>_______________________________________________
+>Microbuilder-dev mailing list
+>Microbuilder-dev at lists.berlios.de
+>http://lists.berlios.de/mailman/listinfo/microbuilder-dev
+
+--
+http://www.micromusic.net
+|| ||| | ||| | |||| || | |||
+lowtech music for hightech people
+
+need more input?
+microbuilder - community construction kit
+http://microbuilder.com 
+
+
+
+
+From mbertier at fusemail.com  Thu Mar 25 11:28:40 2004
+From: mbertier at fusemail.com (Michel Bertier)
+Date: Thu, 25 Mar 2004 10:28:40 +0000
+Subject: [Microbuilder-dev] Microbuilder developers' ressources
+In-Reply-To: <6.0.0.22.2.20040325095311.02e4f060@mail.obinary.com>
+References: <200403191747.57957.mbertier@parishq.net> <6.0.0.22.2.20040325095311.02e4f060@mail.obinary.com>
+Message-ID: <200403251028.40297.mbertier@fusemail.com>
+
+hi! doin' fine ??
+
+On Thursday 25 March 2004 08:55, carl wrote:
+> great, i just checked it right now.
+> i did not yet check the installer in details, but maybe i can use
+> this files also for my version 1.0 until mid april, lets see.
+until mid april we'll have a stable, downgraded and tested version of Postnuke 
++ good documentation but no modules. We'll have then to plugin bill's 
+renderer and code necessary modules.
+
+> can you tell what there is not working anymore with this downsized
+> version compared to the original postnuke version?
+i just kept the perm system, the data access layer and the module managment 
+system.
+At the moment it cannot be used, a successful installation will lead to an 
+error page (that is normal). I continue downgrading / documenting every 
+single file of postnuke, i'll let you know when it will get useable :))
+
+I can set up a system that sends an email (ie. to 
+microbuilder-cvs at lists.berlios.de)  on every cvs checkin - it can help 
+intersted people in following what is done during downgrade.
+I'll set it up if anyone is intersted in it :)
+
+
+ztrg
+
+bertier
+
+
+
+-- 
+Ce message et toutes les pi?ces jointes sont confidentiels 
+et ?tablis ? l'intention exclusive de leurs destinataires. 
+La COGIP d?cline toute responsabilit? en cas d'alt?ration, 
+de d?formation, de falsification ou de non-port de la cravate 
+par l'auteur du message. 
+
+

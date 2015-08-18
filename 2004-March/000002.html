@@ -1,0 +1,145 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Microbuilder-dev] Ideas
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/microbuilder-dev/2004-March/index.html" >
+   <LINK REL="made" HREF="mailto:microbuilder-dev%40lists.berlios.de?Subject=Re%3A%20%5BMicrobuilder-dev%5D%20Ideas&In-Reply-To=%3C200403021304.18152.mbertier%40fusemail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   
+   <LINK REL="Next"  HREF="000003.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Microbuilder-dev] Ideas</H1>
+    <B>Michel Bertier</B> 
+    <A HREF="mailto:microbuilder-dev%40lists.berlios.de?Subject=Re%3A%20%5BMicrobuilder-dev%5D%20Ideas&In-Reply-To=%3C200403021304.18152.mbertier%40fusemail.com%3E"
+       TITLE="[Microbuilder-dev] Ideas">mbertier at fusemail.com
+       </A><BR>
+    <I>Tue Mar  2 14:04:18 CET 2004</I>
+    <P><UL>
+        
+        <LI>Next message: <A HREF="000003.html">[Microbuilder-dev] Ideas
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2">[ date ]</a>
+              <a href="thread.html#2">[ thread ]</a>
+              <a href="subject.html#2">[ subject ]</a>
+              <a href="author.html#2">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Ha&#239;!
+
+We checked the installer u sent us (it's REALLY gorgeous - can u say that for 
+an installer ?).
+And used a lot postnuke to see how it feels regarding to the current site (we 
+use it ALOT ;)
+
+ Using postnuke as a basis for the microbuilder will greatly help, but we're 
+afraid that the micromusic site will have a &quot;postnuke feeling&quot;. Actually, we 
+think that every microbuilder module should be recoded from scratch. This 
+will for sure give modules a functionnal and graphical consistency (a common 
+identity). Besides that, designing our own modules would permit _much easier_ 
+maintenance and evolutions.
+
+A downgraded postnuke (+additionnal specifically implemented classes) will 
+be fully documented, with a stable API in order to permit easy module 
+development (we could also setup a special berlios project dedicated to 
+microbuilder modules - as dotproject does, see <A HREF="http://dotmods.sf.net">http://dotmods.sf.net</A>)
+
+The software will have a the ability to provide external services for each 
+module (XML feeds, RPC, ...)
+
+And we've seen that different things can be done to blast the performance 
+problems :
+
+After looking at the stats u sent us, we thought that many of the site's 
+sections could be pregenerated in HTML. For instance, as the MicroWarez is 
+only updated 5/6 times a month, html generetaion should only happen at update 
+time. This will permit to avoid using the php interpreter uselessly. 
+Pregeneration will be implemented as a flag that can be toggled by admins for 
+each module.
+
+If you have sufficient rights on micromusic.net web server it would also be 
+possible to optimize site's RAM consumption by setting up a lightweight 
+apache proxy (approx. 400k) to serve static pages (that's why html 
+pregeneration would be nice) . 
+
+It would only raise an heavy php-capable apache process (several Mos) to serve 
+php pages (but maybe you've done that already?).
+
+Bill (our local javascript wizard)  also raised the idea of a completely  
+alternative rendering method (the site's look wouldn't change) using  
+javascript (demo soon :).  Among other features, this would permit on demand  
+preloading of site's interface ( =&gt; no more page refreshing :). This might  
+not sound clear, but a demo will come soon in your hands !
+
+We don't know how advanced microbuilder has to be for the mid-april 
+prerelease.  So here's some info :
+
+Until mid-April we can provide :
+ - downgraded (yet fully working ;) postnuke (we only keep the backend)
+ - stable API (so that module development can start)
+ - html generation engine (something that will be called pnXHTML - xhtml 
+lowers pages' weight, is easily accessible by javascript, and so on...)
+ - javascript rendering engine prototype
+ - API docs for the above
+ - a minimal example site with minimal example module
+ - installer (you implemented it already ;)
+
+Do you like these ideas? 
+
+Your development plans for April are probably already established and our 
+proposal probably (yet it may ;) doesn't fit.
+April is coming soon, and it's sure we can't provide more that what mentioned 
+above. So, while you work at that prerelease, 
+
+we can work on that proposal (if u like it :) and set up a nice, shiny and 
+documented API that you&amp;us can work on as of April 
+
+;)
+
+Reading Microbuilder's project concept u sent us was great and we think that 
+the box deserves to have a CMS software as 
+
+original as the book :) Motivation here is great ;)
+
+luuuuuukin' furward,
+
+Bertier, Bill &amp; Divag
+
+-- 
+Ce message et toutes les pi&#232;ces jointes sont confidentiels 
+et &#233;tablis &#224; l'intention exclusive de leurs destinataires. 
+La COGIP d&#233;cline toute responsabilit&#233; en cas d'alt&#233;ration, 
+de d&#233;formation, de falsification ou de non-port de la cravate 
+par l'auteur du message. 
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	
+	<LI>Next message: <A HREF="000003.html">[Microbuilder-dev] Ideas
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2">[ date ]</a>
+              <a href="thread.html#2">[ thread ]</a>
+              <a href="subject.html#2">[ subject ]</a>
+              <a href="author.html#2">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/microbuilder-dev">More information about the Microbuilder-dev
+mailing list</a><br>
+</body></html>

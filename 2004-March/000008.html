@@ -1,0 +1,93 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Microbuilder-dev] About languages
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/microbuilder-dev/2004-March/index.html" >
+   <LINK REL="made" HREF="mailto:microbuilder-dev%40lists.berlios.de?Subject=Re%3A%20%5BMicrobuilder-dev%5D%20About%20languages&In-Reply-To=%3C200403130142.07564.mbertier%40fusemail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000007.html">
+   <LINK REL="Next"  HREF="000009.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Microbuilder-dev] About languages</H1>
+    <B>Michel Bertier</B> 
+    <A HREF="mailto:microbuilder-dev%40lists.berlios.de?Subject=Re%3A%20%5BMicrobuilder-dev%5D%20About%20languages&In-Reply-To=%3C200403130142.07564.mbertier%40fusemail.com%3E"
+       TITLE="[Microbuilder-dev] About languages">mbertier at fusemail.com
+       </A><BR>
+    <I>Sat Mar 13 01:42:07 CET 2004</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000007.html">[Microbuilder-dev] About languages
+</A></li>
+        <LI>Next message: <A HREF="000009.html">[Microbuilder-dev] [Bug #1687] test bug
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#8">[ date ]</a>
+              <a href="thread.html#8">[ thread ]</a>
+              <a href="subject.html#8">[ subject ]</a>
+              <a href="author.html#8">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On Thursday 11 March 2004 13:58, carl wrote:
+&gt;<i> yes, for micromusic we dont need more than one language.
+</I>&gt;<i>
+</I>&gt;<i> but for more general use of the microbuilder software it should be
+</I>&gt;<i> possible to keep the ability of easy editing and adapting of text in
+</I>&gt;<i> modules.
+</I>ok :)
+
+ * how it works in postnuke :
+   - Every line of text in postnuke is associated to a constant ( ie. &lt;input 
+type=&quot;submit&quot; label=&quot;&lt;?php echo _CONSTANTNAME ?&gt;&quot; /&gt; ).
+   - Files located in /language/&lt;langcode&gt;/ 
+and /modules/&lt;modulename&gt;/&lt;langcode&gt;/ contain definition of constants for 
+&lt;langcode&gt; corresponding language.
+   - NS-Language module provides a gui for creating translations
+   - Default &lt;langcode&gt; is 'eng'
+
+ * here's what we'll do :
+   - Completely remove NS-Language
+   - Remove every &lt;langcode&gt;/ rep except for &lt;langcode&gt; == eng
+   - Maintain multilingual capabilities for the installer (do you agree with 
+that ?)
+
+uglub
+
+bertier
+-- 
+Ce message et toutes les pi&#232;ces jointes sont confidentiels
+et &#233;tablis &#224; l'intention exclusive de leurs destinataires.
+La COGIP d&#233;cline toute responsabilit&#233; en cas d'alt&#233;ration,
+de d&#233;formation, de falsification ou de non-port de la cravate
+par l'auteur du message.
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000007.html">[Microbuilder-dev] About languages
+</A></li>
+	<LI>Next message: <A HREF="000009.html">[Microbuilder-dev] [Bug #1687] test bug
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#8">[ date ]</a>
+              <a href="thread.html#8">[ thread ]</a>
+              <a href="subject.html#8">[ subject ]</a>
+              <a href="author.html#8">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/microbuilder-dev">More information about the Microbuilder-dev
+mailing list</a><br>
+</body></html>

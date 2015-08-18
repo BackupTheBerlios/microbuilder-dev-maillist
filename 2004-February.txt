@@ -1,0 +1,328 @@
+From carl at micromusic.net  Sat Feb 28 12:25:58 2004
+From: carl at micromusic.net (carl)
+Date: Sat, 28 Feb 2004 12:25:58 +0100
+Subject: [Microbuilder-dev] Re: tec info about micromusic.net
+In-Reply-To: <200402271549.14514.mbertier@fusemail.com>
+References: <6.0.0.22.2.20040227151328.02e90860@mail.obinary.com>
+ <200402271549.14514.mbertier@fusemail.com>
+Message-ID: <6.0.0.22.2.20040228113816.03065010@mail.obinary.com>
+
+hi dev peepz
+
+here my first installer package for download:
+
+http://install.micromusic.org/downloads/microbuilder_0.5b.zip
+
+it is still an unfinished version and does even include a real bad photo 
+album module
+which we should remove again.
+
+to explain in short what my goals where and what i did with the original 
+postnuke system:
+
+goal:
+i wanted to have a frame system running parallel to the "normal postnuke" 
+page where i can
+define themes individually for each frame and it should still be possible 
+to run standard
+postnuke modules without any modification.
+
+what i did:
+
+1. i copied all central documents (index.php, modules.php, header.php, 
+user.php, admin.php etc.) and
+renamed it with a mb_ prefix (ex. mb_microbuilder)
+
+2. i copied the "modules.php file and renamed it for each frame:
+
+   mb_chat = microtalk block (i used the buddies module and block for that 
+and modified it)
+
+   mb_blocks = side blocks (in the frame system only side block on the 
+right side of the standard
+   postnuke system are displayed. login block is never displayed there)
+
+   mb_modules = the modules main content is displayed here
+
+   mb_navigation = a modified navigation block is displayed here (block 
+mb_navigation)
+
+   mb_oneline = not yet functional, but should display microlinez content 
+in the future
+
+   mb_logo = not yet fully functional, but should display logo and server 
+load in the future
+
+then i changed the themes for the frames to only display either the 
+specific blocks or
+module content. also i added a <base target="mbmodules"> tag in the header of
+the blocks frame html code to force unmodified blocks to show linked 
+content in the mbmodules
+frame and made the frames reload by javascript if needed.
+
+the "buddies" (now mb_microtalk) and "Messages" module were primitively 
+hacked by
+myself to let  guests show up in the chat frame and give them a unique 
+number. guest
+are also allowed to send messages. a big and dirty hack, i have no idea if 
+i coded
+a hundred security holes there ;) ....
+
+also a bit dirty hacking was the forwarding script i put into the header of 
+the main scripts
+(index.php, modules.php, user.php and admin.php) to ensure that clicking on 
+links of
+unmodified modules in the frame modus wouldnt change into singlepage modus 
+again.
+real dirty hack but i need it to test new modules and make common modules
+compatible to my frame system.
+
+changed modules:
+at the moment only the "mb_microeventz" module is completely adapted with 
+the new
+functionality and layout i have in mind for the microbuilder/new 
+micromusic.net system.
+it also shows how i think subnavigation should be implement .
+
+all the othermodules are still a mess, only header info are mostly 
+displayed correctly at the
+moment. remember that the modules should display the content correctly both in
+single- and frames mode. only the style sheets are different and headers 
+can be modified.
+
+and dont pass this installer 0.5b around cos it is still very messy, it is 
+just for developers
+at the moment. but it would be nice to discuss how to realize such a system 
+properly,
+and find better and cleaner solutions for future versions of course :)
+
+ok, check out the installer .zip and let me know if it works!!
+
+bestz & talk to you soon
+carl
+
+
+ps: maybe you need to
+
+#chmod 777 pnTemp/pnRender_cached
+
+and
+
+#chmod 777 pnTemp/pnRender_compiles
+
+after installation to let pnRender access those directories. i havent 
+implemented that yet in the
+installer...
+
+
+
+At 16:49 27.02.2004, you wrote:
+>On Friday 27 February 2004 14:49, you wrote:
+> > hi bertier
+> >
+> > (pls forward this to the others, or let me know what email list i can use
+> > for this kind
+> > of communication)
+>it would be nice to use the microbuilder-dev at lists.berlios.de list
+>(https://developer.berlios.de/mail/?group_id=1487) - the microbuilder-cvs
+>list is not functionnal at the moment...
+>
+> > attached a sql dump of the db structure (no data) currently used and a html
+> > doc from phpMyAdmin showing the stats of the mysql server running for about
+> > a week.
+> >
+> > and below some info about db and access stats at the moment on
+> > micromusic.net, i never checked the apache access log in the last 4
+> > years... i just switched it off.
+>exactly what we need ! that's great :=) we'll have plenty of things to 
+>discuss
+>tonite (and tomorrow and ...)
+>
+>a?dyho!
+>
+>bertier
+>
+>ps : thx again for the email problem ..
+>--
+>Ce message et toutes les pi?ces jointes sont confidentiels
+>et ?tablis ? l'intention exclusive de leurs destinataires.
+>La COGIP d?cline toute responsabilit? en cas d'alt?ration,
+>de d?formation, de falsification ou de non-port de la cravate
+>par l'auteur du message.
+
+--
+http://www.micromusic.net
+|| ||| | ||| | |||| || | |||
+lowtech music for hightech people
+
+need more input?
+microbuilder - community construction kit
+http://microbuilder.com 
+
+
+
+
+From carl at micromusic.net  Sat Feb 28 12:35:48 2004
+From: carl at micromusic.net (carl)
+Date: Sat, 28 Feb 2004 12:35:48 +0100
+Subject: [Microbuilder-dev] Re: tec info about micromusic.net
+Message-ID: <6.0.0.22.2.20040228123425.02e9d070@mail.obinary.com>
+
+hi dev peepz
+
+(sorry if this email is reaching you in doubble, just subscribed to the dev 
+list)
+
+here my first installer package for download:
+
+http://install.micromusic.org/downloads/microbuilder_0.5b.zip
+
+it is still an unfinished version and does even include a real bad photo 
+album module
+which we should remove again.
+
+to explain in short what my goals where and what i did with the original 
+postnuke system:
+
+goal:
+i wanted to have a frame system running parallel to the "normal postnuke" 
+page where i can
+define themes individually for each frame and it should still be possible 
+to run standard
+postnuke modules without any modification.
+
+what i did:
+
+1. i copied all central documents (index.php, modules.php, header.php, 
+user.php, admin.php etc.) and
+renamed it with a mb_ prefix (ex. mb_microbuilder)
+
+2. i copied the "modules.php file and renamed it for each frame:
+
+   mb_chat = microtalk block (i used the buddies module and block for that 
+and modified it)
+
+   mb_blocks = side blocks (in the frame system only side block on the 
+right side of the standard
+   postnuke system are displayed. login block is never displayed there)
+
+   mb_modules = the modules main content is displayed here
+
+   mb_navigation = a modified navigation block is displayed here (block 
+mb_navigation)
+
+   mb_oneline = not yet functional, but should display microlinez content 
+in the future
+
+   mb_logo = not yet fully functional, but should display logo and server 
+load in the future
+
+then i changed the themes for the frames to only display either the 
+specific blocks or
+module content. also i added a <base target="mbmodules"> tag in the header of
+the blocks frame html code to force unmodified blocks to show linked 
+content in the mbmodules
+frame and made the frames reload by javascript if needed.
+
+the "buddies" (now mb_microtalk) and "Messages" module were primitively 
+hacked by
+myself to let  guests show up in the chat frame and give them a unique 
+number. guest
+are also allowed to send messages. a big and dirty hack, i have no idea if 
+i coded
+a hundred security holes there ;) ....
+
+also a bit dirty hacking was the forwarding script i put into the header of 
+the main scripts
+(index.php, modules.php, user.php and admin.php) to ensure that clicking on 
+links of
+unmodified modules in the frame modus wouldnt change into singlepage modus 
+again.
+real dirty hack but i need it to test new modules and make common modules
+compatible to my frame system.
+
+changed modules:
+at the moment only the "mb_microeventz" module is completely adapted with 
+the new
+functionality and layout i have in mind for the microbuilder/new 
+micromusic.net system.
+it also shows how i think subnavigation should be implement .
+
+all the othermodules are still a mess, only header info are mostly 
+displayed correctly at the
+moment. remember that the modules should display the content correctly both in
+single- and frames mode. only the style sheets are different and headers 
+can be modified.
+
+and dont pass this installer 0.5b around cos it is still very messy, it is 
+just for developers
+at the moment. but it would be nice to discuss how to realize such a system 
+properly,
+and find better and cleaner solutions for future versions of course :)
+
+ok, check out the installer .zip and let me know if it works!!
+
+bestz & talk to you soon
+carl
+
+
+ps: maybe you need to
+
+#chmod 777 pnTemp/pnRender_cached
+
+and
+
+#chmod 777 pnTemp/pnRender_compiles
+
+after installation to let pnRender access those directories. i havent 
+implemented that yet in the
+installer...
+
+
+
+At 16:49 27.02.2004, you wrote:
+>On Friday 27 February 2004 14:49, you wrote:
+> > hi bertier
+> >
+> > (pls forward this to the others, or let me know what email list i can use
+> > for this kind
+> > of communication)
+>it would be nice to use the microbuilder-dev at lists.berlios.de list
+>(https://developer.berlios.de/mail/?group_id=1487) - the microbuilder-cvs
+>list is not functionnal at the moment...
+>
+> > attached a sql dump of the db structure (no data) currently used and a html
+> > doc from phpMyAdmin showing the stats of the mysql server running for about
+> > a week.
+> >
+> > and below some info about db and access stats at the moment on
+> > micromusic.net, i never checked the apache access log in the last 4
+> > years... i just switched it off.
+>exactly what we need ! that's great :=) we'll have plenty of things to 
+>discuss
+>tonite (and tomorrow and ...)
+>
+>a?dyho!
+>
+>bertier
+>
+>ps : thx again for the email problem ..
+>--
+>Ce message et toutes les pi?ces jointes sont confidentiels
+>et ?tablis ? l'intention exclusive de leurs destinataires.
+>La COGIP d?cline toute responsabilit? en cas d'alt?ration,
+>de d?formation, de falsification ou de non-port de la cravate
+>par l'auteur du message.
+
+--
+http://www.micromusic.net
+|| ||| | ||| | |||| || | |||
+lowtech music for hightech people
+
+need more input?
+microbuilder - community construction kit
+http://microbuilder.com  
+
+
+
+

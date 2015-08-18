@@ -1,0 +1,79 @@
+From carl at micromusic.net  Wed Apr 14 15:28:46 2004
+From: carl at micromusic.net (carl)
+Date: Wed, 14 Apr 2004 15:28:46 +0200
+Subject: [Microbuilder-dev] version 2.0
+Message-ID: <6.0.0.22.2.20040414152738.02ed09f0@mail.obinary.com>
+
+hi dev people!!
+
+how are you? how's it going with the coding?
+
+i just wanted to let you know that we need all files and docs
+of the 2.0 version until april 17 (sat), because then we
+have to start burning the CDs.
+
+for the book i'm not sure if we really need documentation
+material, i think we can live without that in the book.
+
+but on the CD all the files and docs are important.
+
+let me know if that's possible & all tha bestz
+carl
+
+
+--
+http://www.micromusic.net
+|| ||| | ||| | |||| || | |||
+lowtech music for hightech people
+
+need more input?
+microbuilder - community construction kit
+http://microbuilder.com  
+
+
+
+
+From mbertier at parishq.net  Thu Apr 15 14:44:48 2004
+From: mbertier at parishq.net (Michel Bertier)
+Date: Thu, 15 Apr 2004 12:44:48 +0000
+Subject: [Microbuilder-dev] version 2.0
+In-Reply-To: <6.0.0.22.2.20040414152738.02ed09f0@mail.obinary.com>
+References: <6.0.0.22.2.20040414152738.02ed09f0@mail.obinary.com>
+Message-ID: <200404151244.49063.mbertier@parishq.net>
+
+On Wednesday 14 April 2004 13:28, carl wrote:
+> hi dev people!!
+
+hi carl :)
+
+> how are you? how's it going with the coding?
+
+it is going on well :) just comin' back from a quick 4 days holiday....
+
+> i just wanted to let you know that we need all files and docs
+> of the 2.0 version until april 17 (sat), because then we
+> have to start burning the CDs.
+
+i'll make a nice releaz then. but what we will have until 17st april is 
+postnuke downgraded version with no modules. It won't be usable for a regular 
+user. It's just a base to start developing new modules.
+
+> for the book i'm not sure if we really need documentation
+> material, i think we can live without that in the book.
+
+i totally agree. tech doc is quite boring and the book shouldn't bore 
+anyone ;)
+
+greetZ!
+
+bertier (btw, my real name is tristan rivoallan - bertier is just a 
+nickname ;)
+
+-- 
+Ce message et toutes les pi?ces jointes sont confidentiels 
+et ?tablis ? l'intention exclusive de leurs destinataires. 
+La COGIP d?cline toute responsabilit? en cas d'alt?ration, 
+de d?formation, de falsification ou de non-port de la cravate 
+par l'auteur du message. 
+
+

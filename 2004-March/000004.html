@@ -1,0 +1,130 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Microbuilder-dev] Microanswer
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/microbuilder-dev/2004-March/index.html" >
+   <LINK REL="made" HREF="mailto:microbuilder-dev%40lists.berlios.de?Subject=Re%3A%20%5BMicrobuilder-dev%5D%20Microanswer&In-Reply-To=%3C200403100208.57061.mbertier%40fusemail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000003.html">
+   <LINK REL="Next"  HREF="000005.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Microbuilder-dev] Microanswer</H1>
+    <B>Michel Bertier</B> 
+    <A HREF="mailto:microbuilder-dev%40lists.berlios.de?Subject=Re%3A%20%5BMicrobuilder-dev%5D%20Microanswer&In-Reply-To=%3C200403100208.57061.mbertier%40fusemail.com%3E"
+       TITLE="[Microbuilder-dev] Microanswer">mbertier at fusemail.com
+       </A><BR>
+    <I>Wed Mar 10 02:08:57 CET 2004</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000003.html">[Microbuilder-dev] Ideas
+</A></li>
+        <LI>Next message: <A HREF="000005.html">Fwd: Re: [Microbuilder-dev] Microanswer
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#4">[ date ]</a>
+              <a href="thread.html#4">[ thread ]</a>
+              <a href="subject.html#4">[ subject ]</a>
+              <a href="author.html#4">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi :)
+
+a whole week to write a simple email ! hum :S things have been done anyway :)
+we discussed extensively, made things clear between us (that's important !). 
+Bill will provide a working prototype of the rendering engine tomorrow. 
+Postnuke downgrading will finish by the end of the week :) (with installer). 
+Answers to your questions and reactions to your comments follow.
+We seem to agree on everything (yeah!;) but the postnuke compatibility. Let's 
+discuss it :) !
+
+
+&gt;&gt;<i> it would be nice if we dont need to change the postnukeAPI cos then we
+</I>&gt;&gt;<i> can use postnuke modules and adapt them easily, and also refere to the
+</I>&gt;&gt;<i> API documentation from postnuke.
+</I>we do not really agree with this ... as stated in the microbuilder concept 
+doc, the microbuilder has to be _simple_. each micromodule micromodule has to 
+be specific, and simple too. Postnuke modules (because that is their purpose) 
+are bloated with functionnality and are designed to be _very_ generic and 
+adaptative. And we feel that Microbuilder does'nt need to be as generic as 
+postnuke, does it ?
+We really think that breakin compatibility with postnuke is important :
+ - code maintenance is easier when you have developed the modules (postnuke 
+documentation is really awful)
+ - micromusic site needs to have a strong personnality. Using third party 
+modules will decrease this personnality.
+ - we don't need the microbuilder to evolve as fast / the same way as 
+postnuke. the microbuilder does'nt aim to be a worldwide spread generic cms 
+management system.
+ postnuke base will be very useful but we really shouldn't use the top layer 
+of the application (modules, rendering, ...). It is not well documented and 
+doens't feet our needs.
+ Once the Microbuilder finished, we'll have fully functionnal cms system with 
+a fully original rendering system, modules highly specialized in music 
+community management capable of interacting with the site's interface. The 
+microbuilder (nicely documented) API will permit microcoders to develop 
+supplementary modules easily.
+
+&gt;&gt;&gt;<i> The software will have a the ability to provide external services for
+</I>&gt;&gt;&gt;<i> each module (XML feeds, RPC, ...)
+</I>&gt;&gt;<i> isnt this already included in postnuke in some way?
+</I>&gt;&gt;<i> in the blocks admin section there is something like
+</I>&gt;&gt;<i> &quot;Refresh time for block (only used for blocks that pull information
+</I>&gt;&gt;<i> from outside sources)&quot;
+</I>XML feed generation is disponible in postnuke for news item, but its 
+implementation is very limited and it would be much better to recode this.
+(The blocks your speaking of do not provide external service but pull their 
+information from such services)
+
+
+&gt;&gt;<i> at the moment i use the pnRender module for the microeventz and
+</I>&gt;&gt;<i> microshop, and it is possible to cache the pages as HTML. isnt this a
+</I>&gt;&gt;<i> method we could use?
+</I>pnRender is very nice but it still uses table markup, which is not good and 
+wouldn't work with javascript rendering. Besides that, pnRender is much more 
+heavy / complex than what is really needed to set up a fantastic 
+microbuilder. 
+
+
+
+greeetz and quicker answers ;)
+
+Divag, Bill &amp; Bertier
+
+-- 
+Ce message et toutes les pi&#232;ces jointes sont confidentiels
+et &#233;tablis &#224; l'intention exclusive de leurs destinataires.
+La COGIP d&#233;cline toute responsabilit&#233; en cas d'alt&#233;ration,
+de d&#233;formation, de falsification ou de non-port de la cravate
+par l'auteur du message.
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000003.html">[Microbuilder-dev] Ideas
+</A></li>
+	<LI>Next message: <A HREF="000005.html">Fwd: Re: [Microbuilder-dev] Microanswer
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#4">[ date ]</a>
+              <a href="thread.html#4">[ thread ]</a>
+              <a href="subject.html#4">[ subject ]</a>
+              <a href="author.html#4">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/microbuilder-dev">More information about the Microbuilder-dev
+mailing list</a><br>
+</body></html>

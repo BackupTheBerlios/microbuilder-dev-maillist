@@ -1,0 +1,212 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Microbuilder-dev] Re: tec info about micromusic.net
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/microbuilder-dev/2004-February/index.html" >
+   <LINK REL="made" HREF="mailto:microbuilder-dev%40lists.berlios.de?Subject=Re%3A%20%5BMicrobuilder-dev%5D%20Re%3A%20tec%20info%20about%20micromusic.net&In-Reply-To=%3C6.0.0.22.2.20040228113816.03065010%40mail.obinary.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   
+   <LINK REL="Next"  HREF="000001.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Microbuilder-dev] Re: tec info about micromusic.net</H1>
+    <B>carl</B> 
+    <A HREF="mailto:microbuilder-dev%40lists.berlios.de?Subject=Re%3A%20%5BMicrobuilder-dev%5D%20Re%3A%20tec%20info%20about%20micromusic.net&In-Reply-To=%3C6.0.0.22.2.20040228113816.03065010%40mail.obinary.com%3E"
+       TITLE="[Microbuilder-dev] Re: tec info about micromusic.net">carl at micromusic.net
+       </A><BR>
+    <I>Sat Feb 28 12:25:58 CET 2004</I>
+    <P><UL>
+        
+        <LI>Next message: <A HREF="000001.html">[Microbuilder-dev] Re: tec info about micromusic.net
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#0">[ date ]</a>
+              <a href="thread.html#0">[ thread ]</a>
+              <a href="subject.html#0">[ subject ]</a>
+              <a href="author.html#0">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>hi dev peepz
+
+here my first installer package for download:
+
+<A HREF="http://install.micromusic.org/downloads/microbuilder_0.5b.zip">http://install.micromusic.org/downloads/microbuilder_0.5b.zip</A>
+
+it is still an unfinished version and does even include a real bad photo 
+album module
+which we should remove again.
+
+to explain in short what my goals where and what i did with the original 
+postnuke system:
+
+goal:
+i wanted to have a frame system running parallel to the &quot;normal postnuke&quot; 
+page where i can
+define themes individually for each frame and it should still be possible 
+to run standard
+postnuke modules without any modification.
+
+what i did:
+
+1. i copied all central documents (index.php, modules.php, header.php, 
+user.php, admin.php etc.) and
+renamed it with a mb_ prefix (ex. mb_microbuilder)
+
+2. i copied the &quot;modules.php file and renamed it for each frame:
+
+   mb_chat = microtalk block (i used the buddies module and block for that 
+and modified it)
+
+   mb_blocks = side blocks (in the frame system only side block on the 
+right side of the standard
+   postnuke system are displayed. login block is never displayed there)
+
+   mb_modules = the modules main content is displayed here
+
+   mb_navigation = a modified navigation block is displayed here (block 
+mb_navigation)
+
+   mb_oneline = not yet functional, but should display microlinez content 
+in the future
+
+   mb_logo = not yet fully functional, but should display logo and server 
+load in the future
+
+then i changed the themes for the frames to only display either the 
+specific blocks or
+module content. also i added a &lt;base target=&quot;mbmodules&quot;&gt; tag in the header of
+the blocks frame html code to force unmodified blocks to show linked 
+content in the mbmodules
+frame and made the frames reload by javascript if needed.
+
+the &quot;buddies&quot; (now mb_microtalk) and &quot;Messages&quot; module were primitively 
+hacked by
+myself to let  guests show up in the chat frame and give them a unique 
+number. guest
+are also allowed to send messages. a big and dirty hack, i have no idea if 
+i coded
+a hundred security holes there ;) ....
+
+also a bit dirty hacking was the forwarding script i put into the header of 
+the main scripts
+(index.php, modules.php, user.php and admin.php) to ensure that clicking on 
+links of
+unmodified modules in the frame modus wouldnt change into singlepage modus 
+again.
+real dirty hack but i need it to test new modules and make common modules
+compatible to my frame system.
+
+changed modules:
+at the moment only the &quot;mb_microeventz&quot; module is completely adapted with 
+the new
+functionality and layout i have in mind for the microbuilder/new 
+micromusic.net system.
+it also shows how i think subnavigation should be implement .
+
+all the othermodules are still a mess, only header info are mostly 
+displayed correctly at the
+moment. remember that the modules should display the content correctly both in
+single- and frames mode. only the style sheets are different and headers 
+can be modified.
+
+and dont pass this installer 0.5b around cos it is still very messy, it is 
+just for developers
+at the moment. but it would be nice to discuss how to realize such a system 
+properly,
+and find better and cleaner solutions for future versions of course :)
+
+ok, check out the installer .zip and let me know if it works!!
+
+bestz &amp; talk to you soon
+carl
+
+
+ps: maybe you need to
+
+#chmod 777 pnTemp/pnRender_cached
+
+and
+
+#chmod 777 pnTemp/pnRender_compiles
+
+after installation to let pnRender access those directories. i havent 
+implemented that yet in the
+installer...
+
+
+
+At 16:49 27.02.2004, you wrote:
+&gt;<i>On Friday 27 February 2004 14:49, you wrote:
+</I>&gt;<i> &gt; hi bertier
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; (pls forward this to the others, or let me know what email list i can use
+</I>&gt;<i> &gt; for this kind
+</I>&gt;<i> &gt; of communication)
+</I>&gt;<i>it would be nice to use the <A HREF="https://lists.berlios.de/mailman/listinfo/microbuilder-dev">microbuilder-dev at lists.berlios.de</A> list
+</I>&gt;<i>(<A HREF="https://developer.berlios.de/mail/?group_id=1487">https://developer.berlios.de/mail/?group_id=1487</A>) - the microbuilder-cvs
+</I>&gt;<i>list is not functionnal at the moment...
+</I>&gt;<i>
+</I>&gt;<i> &gt; attached a sql dump of the db structure (no data) currently used and a html
+</I>&gt;<i> &gt; doc from phpMyAdmin showing the stats of the mysql server running for about
+</I>&gt;<i> &gt; a week.
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; and below some info about db and access stats at the moment on
+</I>&gt;<i> &gt; micromusic.net, i never checked the apache access log in the last 4
+</I>&gt;<i> &gt; years... i just switched it off.
+</I>&gt;<i>exactly what we need ! that's great :=) we'll have plenty of things to 
+</I>&gt;<i>discuss
+</I>&gt;<i>tonite (and tomorrow and ...)
+</I>&gt;<i>
+</I>&gt;<i>a&#239;dyho!
+</I>&gt;<i>
+</I>&gt;<i>bertier
+</I>&gt;<i>
+</I>&gt;<i>ps : thx again for the email problem ..
+</I>&gt;<i>--
+</I>&gt;<i>Ce message et toutes les pi&#232;ces jointes sont confidentiels
+</I>&gt;<i>et &#233;tablis &#224; l'intention exclusive de leurs destinataires.
+</I>&gt;<i>La COGIP d&#233;cline toute responsabilit&#233; en cas d'alt&#233;ration,
+</I>&gt;<i>de d&#233;formation, de falsification ou de non-port de la cravate
+</I>&gt;<i>par l'auteur du message.
+</I>
+--
+<A HREF="http://www.micromusic.net">http://www.micromusic.net</A>
+||<i> ||| | ||| | |||| || | |||
+</I>lowtech music for hightech people
+
+need more input?
+microbuilder - community construction kit
+<A HREF="http://microbuilder.com">http://microbuilder.com</A> 
+
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	
+	<LI>Next message: <A HREF="000001.html">[Microbuilder-dev] Re: tec info about micromusic.net
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#0">[ date ]</a>
+              <a href="thread.html#0">[ thread ]</a>
+              <a href="subject.html#0">[ subject ]</a>
+              <a href="author.html#0">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/microbuilder-dev">More information about the Microbuilder-dev
+mailing list</a><br>
+</body></html>
